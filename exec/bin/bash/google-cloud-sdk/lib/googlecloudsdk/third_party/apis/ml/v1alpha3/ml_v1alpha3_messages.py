@@ -286,15 +286,15 @@ class GoogleCloudMlV1alpha3ListVersionsResponse(_messages.Message):
   versions = _messages.MessageField('GoogleCloudMlV1alpha3Version', 2, repeated=True)
 
 
-class GoogleCloudMlV1alpha3MasterSpec(_messages.Message):
-  """Represents a specification of master worker.
+class GoogleCloudMlV1alpha3MainSpec(_messages.Message):
+  """Represents a specification of main worker.
 
   Fields:
-    replicaCount: The required number of master worker servers. Defaults to 1.
-      If the number of replicas is greater than 1, the first master worker
+    replicaCount: The required number of main worker servers. Defaults to 1.
+      If the number of replicas is greater than 1, the first main worker
       will be the one monitored for success/failure.
-    resources: Resource requirements for a master. If not specified, default
-      master configuration will be used.
+    resources: Resource requirements for a main. If not specified, default
+      main configuration will be used.
   """
 
   replicaCount = _messages.IntegerField(1, variant=_messages.Variant.UINT64)
@@ -521,7 +521,7 @@ class GoogleCloudMlV1alpha3SubmitTrainingJobRequest(_messages.Message):
     jobArgs: Additional command line arguments to pass to the program.
     jobName: The job name. Must be unique within the project.
     logLevel: Specify minimun log levels.
-    masterSpec: Specification of master workers. The first master worker will
+    mainSpec: Specification of main workers. The first main worker will
       be the task monitored for job success/failure.
     metadataPath: Optional. The URI of the file containing metadata.
     moduleName: The python module name to run after installing the trainer_uri
@@ -584,7 +584,7 @@ class GoogleCloudMlV1alpha3SubmitTrainingJobRequest(_messages.Message):
   jobArgs = _messages.StringField(3, repeated=True)
   jobName = _messages.StringField(4)
   logLevel = _messages.EnumField('LogLevelValueValuesEnum', 5)
-  masterSpec = _messages.MessageField('GoogleCloudMlV1alpha3MasterSpec', 6)
+  mainSpec = _messages.MessageField('GoogleCloudMlV1alpha3MainSpec', 6)
   metadataPath = _messages.StringField(7)
   moduleName = _messages.StringField(8)
   outputPath = _messages.StringField(9)
